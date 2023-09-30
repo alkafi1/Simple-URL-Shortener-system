@@ -21,3 +21,5 @@ Auth::routes();
 
 // Route::get('/welcome', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
+Route::post('/big/link', [App\Http\Controllers\ShortnerController::class, 'big_link'])->name('big.link');

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Shortner;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -28,5 +31,12 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    public function dashboard()
+    {
+         $links = Shortner::where('user_id', Auth::user()->id)->paginate(10);
+        return view('dashboard', [
+            'links' => $links,
+        ]);
     }
 }
